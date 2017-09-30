@@ -5,3 +5,4 @@
     <link href="../Src/CSS/style.css" rel="stylesheet" type="text/css"/>
     <title>Smart Guard Administrateur : Solution Dispatching Ambulance</title>
 </head>
+<body>
