@@ -1,7 +1,10 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: ASUS
- * Date: 30/09/2017
- * Time: 15:44
- */
+<footer>
+
+</footer>
+</body>
+<script type="text/javascript" src="../Src/JS/jquery-3.2.1.min.js"/>
+<script type="text/javascript" src="../Src/JS/materialize.min.js"/>
+<script type="text/javascript" src="../Src/JS/script.js"/>
+</html>
+
+
