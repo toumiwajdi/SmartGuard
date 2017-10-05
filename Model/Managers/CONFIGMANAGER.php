@@ -2,6 +2,16 @@
 /**
  * Created by PhpStorm.
  * User: ASUS
- * Date: 30/09/2017
- * Time: 15:40
+ * Date: 05/10/2017
+ * Time: 13:45
  */
+
+class CONFIGMANAGER
+{
+    private $cnx; //objet PDO
+    function __construct()
+    {
+        $obj = new config();
+        $this->cnx = $obj->getConnexion();
+    }
+}
