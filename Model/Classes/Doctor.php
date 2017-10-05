@@ -7,7 +7,7 @@
  */
 require_once "Person.php";
 
-class Mecdcin extends Person
+class Doctor extends Person
 {
     private $matricule;
 
