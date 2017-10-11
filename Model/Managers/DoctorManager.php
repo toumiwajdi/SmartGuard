@@ -20,7 +20,7 @@ class DoctorManager
 
     public function createTable()
     {
-        $query="CREATE TABLE `SmartGuard`.`person` ( `id` INT(6) NOT NULL , `firstname` VARCHAR(20) NOT NULL , `lastname` VARCHAR(20) NOT NULL , `phone` INT(10) NOT NULL , `mail` VARCHAR(50) NOT NULL , `type` VARCHAR(18) NOT NULL , `matricule` VARCHAR(20) NOT NULL , PRIMARY KEY (`id`)) ENGINE = MyISAM;";
+        $query="CREATE TABLE `SmartGuard`.`person` ( `id` INT(6) NOT NULL , `firstname` VARCHAR(20) NOT NULL , `lastname` VARCHAR(20) NOT NULL , `phone` INT(10) NOT NULL , `mail` VARCHAR(50) NOT NULL , `type` VARCHAR(18) NOT NULL , `work_id` VARCHAR(20) NOT NULL , `matricule` VARCHAR(20) NOT NULL, `username` VARCHAR(20) NOT NULL, `password` VARCHAR(20) NOT NULL , `status` int(1) NOT NULL , `picture` VARCHAR(20) NOT NULL ,PRIMARY KEY (`id`)) ENGINE = MyISAM";
         $res=$this->cnx->exec($query);
         return $res;
 
@@ -28,7 +28,7 @@ class DoctorManager
 
     public function addDoctor($doctor)
     {
-        $query="INSERT INTO person VALUE ('".$doctor->getId()."','".$doctor->getFirstname()."','".$doctor->getLastname()."','".$doctor->getPhone()."','".$doctor->getMail()."','doctor','".$doctor->getMatricule()."')";
+        $query="INSERT INTO person VALUE ('".$doctor->getId()."','".$doctor->getFirstname()."','".$doctor->getLastname()."','".$doctor->getPhone()."','".$doctor->getMail()."','doctor','".$doctor->getMatricule()."',)";
         $res=$this->cnx->exec($query);
         return $res;
 
@@ -57,7 +57,7 @@ class DoctorManager
 
     public function deleteDoctorByMatricule($matricule)
     {
-        $query="DELETE FROM person WHERE matricule='".$matricule."'";
+        $query="DELETE FROM person WHERE work_id='".$matricule."'";
         $res=$this->cnx->exec($query);
         return $res;
 
@@ -65,7 +65,7 @@ class DoctorManager
 
     public function getAll()
     {
-        $query="SELECT * FROM person";
+        $query="SELECT * FROM person WHERE type='doctor'";
         $res=$this->cnx->query($query);
         return $res->fetechAll($res);
 

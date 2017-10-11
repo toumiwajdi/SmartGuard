@@ -10,7 +10,7 @@
 <body>
 <nav>
         <div class="nav-wrapper">
-            <a href="#!" class="brand-logo center"><img src="../Media/System/Img/HealthCheck.png" class="logo"/></a>
+            <a href="#!" class="brand-logo center"><img src="" class="logo"/></a>
             <ul class="left hide-on-med-and-down">
                 <li class="active"><a href="">Home</a></li>
                 <li><a class="grey-text text-lighten-3" href="#!"></a></li>
