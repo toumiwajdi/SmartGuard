@@ -26,7 +26,7 @@ class DoctorManager
 
     }
 
-    public function addDoctor($doctor)
+    public function addDoctor($person)
     {
         $query="INSERT INTO person VALUE ('".$doctor->getId()."','".$doctor->getFirstname()."','".$doctor->getLastname()."','".$doctor->getPhone()."','".$doctor->getMail()."','doctor','".$doctor->getMatricule()."',)";
         $res=$this->cnx->exec($query);
@@ -37,7 +37,9 @@ class DoctorManager
 
     public function updateDoctor($doctor)
     {
-
+        $query="UPDATE person";
+        $res=$this->cnx->exec($query);
+        return $res;
     }
 
     public function setter($line)
