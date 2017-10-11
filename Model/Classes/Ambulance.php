@@ -14,7 +14,7 @@ class Ambulance
 
 
     /**
-     * Ambulance constructor.
+     * AmbulanceManager constructor.
      */
     public function __construct()
     {
@@ -84,7 +84,7 @@ class Ambulance
 
     public function __toString()
     {
-        return "Ambulance { ".$this->getSerialNumber().",".$this->getModel().",".$this->getModel()."}";
+        return "AmbulanceManager { ".$this->getSerialNumber().",".$this->getModel().",".$this->getModel()."}";
     }
 
 
