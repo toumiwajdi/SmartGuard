@@ -72,5 +72,12 @@ class PersonManager
         return $res->fetechAll($res);
 
     }
+    public function getWaiting()
+    {
+        $query="SELECT work_id,firstname,lastname FROM person";
+        $res=$this->cnx->query($query);
+        return $res->fetechAll($res);
+
+    }
 
 }

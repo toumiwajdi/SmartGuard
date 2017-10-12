@@ -67,7 +67,7 @@ class SecourAgentManager
 
     public function getAll()
     {
-        $query="SELECT * FROM person";
+        $query="SELECT * FROM person WHERE type='secure'";
         $res=$this->cnx->query($query);
         return $res->fetechAll($res);
 

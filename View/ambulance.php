@@ -12,8 +12,10 @@ require_once path . "Model/Managers/AmbulanceManager.php";
 $ambman=new AmbulanceManager();
 $array=$ambman->getAll();
 
+
 ?>
 <div class="row">
+    <h3 class="blue-grey-text center">AMBULANCE MANAGEMENT</h3>
     <div class="col s12">
         <br/>
         <div class="col s10 offset-s10">
