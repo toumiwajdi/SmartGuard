@@ -15,12 +15,14 @@ class Person
     private $mail;
     private $username;
     private $password;
+    private $status;
+    private $picture;
 
     public function __construct()
     {
     }
 
-    public function init($id, $firstname, $lastname, $phone, $mail, $username, $password)
+    public function init($id, $firstname, $lastname, $phone, $mail, $username, $password,$status,$picture)
     {
         $this->id = $id;
         $this->firstname = $firstname;
@@ -29,12 +31,14 @@ class Person
         $this->mail = $mail;
         $this->username = $username;
         $this->password = $password;
+        $this->status=$status;
+        $this->picture=$picture;
     }
 
 
     public function __toString()
     {
-        return "Person { ".$this->id.",".$this->firstname.",".$this->lastname.",".$this->phone.",".$this->mail.",".$this->username." }";
+        return "Person { ".$this->id.",".$this->firstname.",".$this->lastname.",".$this->phone.",".$this->mail.",".$this->username." ".$this->status."}";
     }
 
     /**
@@ -148,5 +152,38 @@ class Person
     {
         $this->password = $password;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+
+    /**
+     * @param mixed $picture
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+    }
+
 
 }
