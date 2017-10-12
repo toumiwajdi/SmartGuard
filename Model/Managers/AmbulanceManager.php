@@ -37,7 +37,7 @@ class AmbulanceManager
 
     public function updateAmbulance($ambulance)
     {
-        $query="UPDATE ambulance";
+        $query=" ambulance";
         $res=$this->cnx->exec($query);
         return $res;
     }
