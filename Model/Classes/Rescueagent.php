@@ -12,12 +12,16 @@ class Rescueagent extends Person
 {
     private $rescue_id;
 
-
-    public function initresc($id, $firstname, $lastname, $phone, $mail, $username, $password,$status,$picture,$matricule)
+    /**
+     * Rescueagent constructor.
+     */
+    public function __construct($id, $firstname, $lastname, $phone, $mail, $username, $password,$status,$picture,$matricule)
     {
+        $this->rescue_id=$matricule;
         parent::init($id, $firstname, $lastname, $phone, $mail, $username, $password,$status,$picture);
-        $this->rescue_id = $matricule;
+
     }
+
 
     /**
      * @return mixed
@@ -34,11 +38,6 @@ class Rescueagent extends Person
     {
         $this->rescue_id = $rescue_id;
     }
-
-
-
-
-
 
 
 

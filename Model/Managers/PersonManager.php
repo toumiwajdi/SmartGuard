@@ -28,7 +28,7 @@ class PersonManager
 
     public function addPerson($person)
     {
-        $query="INSERT INTO person VALUE ('".$doctor->getId()."','".$doctor->getFirstname()."','".$doctor->getLastname()."','".$doctor->getPhone()."','".$doctor->getMail()."','doctor','".$doctor->getMatricule()."')";
+        $query="INSERT INTO person VALUE ('".$person->getId()."','".$person->getFirstname()."','".$person->getLastname()."','".$person->getPhone()."','".$person->getMail()."','doctor','".$person->getMatricule()."')";
         $res=$this->cnx->exec($query);
         return $res;
 
@@ -41,16 +41,16 @@ class PersonManager
         $res=$this->cnx->exec($query);
         return $res;
     }
-
-    public function setter($line)
-    {
+    public function approvepending($workd_id){
+        $query="UPDATE person SET status=1 WHERE work_id='$workd_id'";
+        $res=$this->cnx->exec($query);
+        return $res;
 
     }
 
     public function getPersonById($id)
     {
         $query="Select * from person WHERE id='$id'";
-        var_dump($query);
         $res=$this->cnx->query($query);
         return $res->fetch();
 
@@ -59,7 +59,7 @@ class PersonManager
 
     public function deletePersonById($id)
     {
-        $query="DELETE FROM person WHERE id='".$id."'";
+        $query="DELETE FROM person WHERE work_id='".$id."'";
         $res=$this->cnx->exec($query);
         return $res;
 
@@ -74,9 +74,9 @@ class PersonManager
     }
     public function getWaiting()
     {
-        $query="SELECT work_id,firstname,lastname FROM person";
+        $query="SELECT work_id,firstname,lastname FROM person WHERE status=0";
         $res=$this->cnx->query($query);
-        return $res->fetechAll($res);
+        return $res->fetchAll(PDO::FETCH_NUM);
 
     }
 

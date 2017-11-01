@@ -12,12 +12,13 @@
         <div class="nav-wrapper">
             <a href="#!" class="brand-logo center"><img src="" class="logo"/></a>
             <ul class="left hide-on-med-and-down">
-                <li class="active"><a href="">Home</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!"></a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Pending Requests</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Hospitals</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Ambulances</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Logs/History</a></li>
+
+                <li><a class="grey-text text-lighten-3" href="intervention.php">Intervention</a></li>
+                <li><a class="grey-text text-lighten-3" href="approvole.php">Pending Requests</a></li>
+                <li><a class="grey-text text-lighten-3" href="hospital.php">Hospitals</a></li>
+                <li><a class="grey-text text-lighten-3" href="ambulance.php">Ambulances</a></li>
+                <li><a class="grey-text text-lighten-3" href="service.php">Service</a></li>
+                <li><a class="grey-text text-lighten-3" href="history.php">Logs/History</a></li>
             </ul>
         </div>
 </nav>

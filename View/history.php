@@ -13,6 +13,8 @@ $ambman=new AmbulanceManager();
 $array=$ambman->getAll();
 
 
+
+
 ?>
     <div class="row">
         <h3 class="blue-grey-text center">AMBULANCE MANAGEMENT</h3>

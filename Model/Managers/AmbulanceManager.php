@@ -37,14 +37,9 @@ class AmbulanceManager
 
     public function updateAmbulance($ambulance)
     {
-        $query=" ambulance";
-        $res=$this->cnx->exec($query);
+        $query = " ";
+        $res = $this->cnx->exec($query);
         return $res;
-    }
-
-    public function setter($line)
-    {
-
     }
 
     public function getAmbulanceBySerialNumber($serial_number)
@@ -69,7 +64,7 @@ class AmbulanceManager
     {
         $query="SELECT * FROM ambulance";
         $res=$this->cnx->query($query);
-        return $res->fetechAll($res);
+        return $res->fetchAll(PDO::FETCH_NUM);
 
     }
 

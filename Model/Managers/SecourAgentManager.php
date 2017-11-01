@@ -18,21 +18,14 @@ class SecourAgentManager
         $this->cnx = $obj->getConnexion();
     }
 
-    public function createTable()
-    {
-        $query="CREATE TABLE `SmartGuard`.`person` ( `id` INT(6) NOT NULL , `firstname` VARCHAR(20) NOT NULL , `lastname` VARCHAR(20) NOT NULL , `phone` INT(10) NOT NULL , `mail` VARCHAR(50) NOT NULL , `type` VARCHAR(18) NOT NULL , `matricule` VARCHAR(20) NOT NULL , PRIMARY KEY (`id`)) ENGINE = MyISAM;";
-        $res=$this->cnx->exec($query);
-        return $res;
-
-    }
 
     public function addSecourAgent($secour_agent)
     {
-        $query="INSERT INTO person VALUE ('".$secour_agent->getId()."','".$secour_agent->getFirstname()."','".$secour_agent->getLastname()."','".$secour_agent->getPhone()."','".$secour_agent->getMail()."','secour_agent','".$secour_agent->getMatricule()."')";
+
+        $query="INSERT INTO person VALUE (NULL ,'".$secour_agent->getFirstname()."','".$secour_agent->getLastname()."','".$secour_agent->getPhone()."','".$secour_agent->getMail()."','secure','".$secour_agent->getRescueId()."','".$secour_agent->getUsername()."','".$secour_agent->getPassword()."',0,1)";
+        echo $query;
         $res=$this->cnx->exec($query);
         return $res;
-
-
     }
 
     public function updateSecourAgent($secour_agent)
@@ -47,10 +40,10 @@ class SecourAgentManager
 
     }
 
-    public function getSecourAgentByMatricule($matricule)
+    public function getSecourAgentByWorkId($matricule)
     {
-        $query="Select * from person WHERE matricule='$matricule'";
-        var_dump($query);
+        $query="Select * from person WHERE work_id='$matricule' AND type='secure'";
+        echo($query);
         $res=$this->cnx->query($query);
         return $res->fetch();
 
@@ -59,7 +52,7 @@ class SecourAgentManager
 
     public function deleteSecourAgentByMatricule($matricule)
     {
-        $query="DELETE FROM person WHERE matricule='".$matricule."'";
+        $query="DELETE FROM person WHERE work_id='".$matricule."'";
         $res=$this->cnx->exec($query);
         return $res;
 
@@ -69,8 +62,7 @@ class SecourAgentManager
     {
         $query="SELECT * FROM person WHERE type='secure'";
         $res=$this->cnx->query($query);
-        return $res->fetechAll($res);
-
+        return $res->fetchAll(PDO::FETCH_NUM);
     }
 
 }

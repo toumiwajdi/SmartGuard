@@ -68,7 +68,7 @@ class HospitalManager
     {
         $query="SELECT * FROM hospital";
         $res=$this->cnx->query($query);
-        return $res->fetechAll($res);
+        return $res->fetchAll(PDO::FETCH_NUM);
 
     }
 

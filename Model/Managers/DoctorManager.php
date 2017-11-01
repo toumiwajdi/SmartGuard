@@ -69,8 +69,7 @@ class DoctorManager
     {
         $query="SELECT * FROM person WHERE type='doctor'";
         $res=$this->cnx->query($query);
-        return $res->fetechAll($res);
-
+        return $res->fetchAll(PDO::FETCH_NUM);
     }
 
 }

@@ -9,7 +9,7 @@
 class CONFIG
 {
     function getConnexion()
-    {   $db="mysql:host=localhost:8888;dbname=smartguard";
+    {   $db="mysql:host=localhost:3306;dbname=smartguard";
         $user="root";
         $pw="";
         $connexion=new PDO($db,$user,$pw);
