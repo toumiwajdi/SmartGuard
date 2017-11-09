@@ -35,10 +35,6 @@ class SecourAgentManager
         return $res;
     }
 
-    public function setter($line)
-    {
-
-    }
 
     public function getSecourAgentByWorkId($matricule)
     {
@@ -63,6 +59,11 @@ class SecourAgentManager
         $query="SELECT * FROM person WHERE type='secure'";
         $res=$this->cnx->query($query);
         return $res->fetchAll(PDO::FETCH_NUM);
+    }
+    public function login($login,$pwd){
+        $query="SELECT * FROM person WHERE password='$pwd' AND username='$login' AND  type='secure'";
+        $res=$this->cnx->query($query);
+        return $res->fetch();
     }
 
 }
