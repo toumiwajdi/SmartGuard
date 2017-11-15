@@ -23,7 +23,6 @@ class SecourAgentManager
     {
 
         $query="INSERT INTO person VALUE (NULL ,'".$secour_agent->getFirstname()."','".$secour_agent->getLastname()."','".$secour_agent->getPhone()."','".$secour_agent->getMail()."','secure','".$secour_agent->getRescueId()."','".$secour_agent->getUsername()."','".$secour_agent->getPassword()."',0,1)";
-        echo $query;
         $res=$this->cnx->exec($query);
         return $res;
     }
@@ -39,7 +38,6 @@ class SecourAgentManager
     public function getSecourAgentByWorkId($matricule)
     {
         $query="Select * from person WHERE work_id='$matricule' AND type='secure'";
-        echo($query);
         $res=$this->cnx->query($query);
         return $res->fetch();
 
@@ -62,6 +60,11 @@ class SecourAgentManager
     }
     public function login($login,$pwd){
         $query="SELECT * FROM person WHERE password='$pwd' AND username='$login' AND  type='secure'";
+        $res=$this->cnx->query($query);
+        return $res->fetch();
+    }
+    public function getRescueFromMail($mail){
+        $query="SELECT * FROM person WHERE mail='$mail'";
         $res=$this->cnx->query($query);
         return $res->fetch();
     }

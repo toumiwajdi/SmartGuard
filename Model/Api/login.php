@@ -20,8 +20,7 @@ function getRescueLogin(){
     if ($secure[0])
     {
         if ($secure[9]==1){
-            $resultat['sucess']=$secure;
-            echo json_encode($resultat);
+            echo json_encode($secure);
         }
         else
         {

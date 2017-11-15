@@ -17,5 +17,7 @@ function addIntervention(){
     $commentry=$_POST["commentry"];
     $inter=new Intervention(null,$rescue_id,null,null,null,$commentry);
     $res=new InterventionManager();
-    $res->addIntervention($inter);
+    $resultat["res"]=$res->addIntervention($inter);
+    echo json_encode($resultat);
+
 }

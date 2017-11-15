@@ -20,8 +20,9 @@ class InterventionManager
 
     public function addIntervention($intervention){
 
-        $query="INSERT INTO intervention VALUES (NULL ,'".$intervention->getCommentry()."',".$intervention->getRescueId().",NULL,NULL,'In progress')";
-        return $this->cnx->exec($query);
+        $query="INSERT INTO  intervention VALUES (NULL ,'".$intervention->getCommentry()."',".$intervention->getRescueId().",NULL,NULL,'In progress')";
+        $res=$this->cnx->exec($query);
+        return $this->cnx->lastInsertId();
 
     }
     public function finishIntervention($id){
@@ -46,5 +47,17 @@ class InterventionManager
     public function setDoctor($id,$doctor_id){
         $query="UPDATE intervention SET doctor_id=$doctor_id WHERE id=$id";
         return $this->cnx->exec($query);
+    }
+    public function getDoctor($inter){
+        $query="SELECT CONCAT(p.firstname,' ',p.lastname) as namedoc,p.id FROM intervention i , person p WHERE p.id=i.doctor_id AND i.id=$inter";
+        return $this->cnx->query($query)->fetch();
+    }
+    public function getChoice($inter){
+        $query="SELECT choix FROM intervention WHERE id=$inter";
+        return $this->cnx->query($query)->fetch();
+    }
+    public function getChoiceName($choix){
+        $query="SELECT h.lib_hop , s.name FROM hospital h , service s , bloc b  WHERE h.id=b.hospital AND s.id=b.service AND b.id=$choix";
+        return $this->cnx->query($query)->fetch();
     }
 }
