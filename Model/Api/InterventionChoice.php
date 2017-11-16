@@ -15,13 +15,13 @@ function InterventionChoice()
 {
     $id = $_POST["id"];
     $res = new InterventionManager();
-    echo $id;
     $choice = $res->getChoice($id);
     if ($choice[0]!=null) {
         $resualt = $res->getChoiceName($choice[0]);
         header("Content-Type:application/json");
         echo json_encode($resualt);
-    } else {
+    }
+    else {
         $tan["error"] = "error";
         echo json_encode($tan);
     }

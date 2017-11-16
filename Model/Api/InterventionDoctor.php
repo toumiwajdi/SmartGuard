@@ -15,7 +15,7 @@ function InterventionDoctor(){
     $id=$_POST["id"];
     $res=new InterventionManager();
     $doctor=$res->getDoctor($id);
-    if ($doctor[0]!=nullg){
+    if ($doctor[0]!=null){
         header("Content-Type:application/json");
         echo json_encode($doctor);
     }
