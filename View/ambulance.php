@@ -19,7 +19,7 @@ $array=$ambman->getAll();
     <div class="col s12">
         <br/>
         <div class="col s10 offset-s10">
-            <a class="btn waves-effect waves-light blue-grey" href="" >Add
+            <a class="btn waves-effect waves-light blue-grey" href="ambulanceAdd.php" >Add
                 <i class="material-icons right">add</i>
             </a>
 

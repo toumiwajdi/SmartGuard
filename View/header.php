@@ -4,7 +4,6 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../Src/CSS/style.css" rel="stylesheet" type="text/css"/>
     <link href="../Src/CSS/materialize.min.css" rel="stylesheet" type="text/css"/>
-
     <title>Smart Guard Administrateur : Solution Dispatching Ambulance</title>
 </head>
 <body>

@@ -12,8 +12,12 @@ if ($_SERVER['REQUEST_METHOD']=="POST"){
     setChoiceById();
 }
 function setChoiceById(){
+    $hospital=$_POST["hospital"];
+    $service=$_POST["service"];
     $id=$_POST["id"];
-    $choice=$_POST["choice"];
     $res=new InterventionManager();
-    $res->doctorchoice($id,$choice);
+    $idh=$res->getHospitalId($hospital)["id"];
+    $ids=$res->getServiceId($service)["id"];
+    $res->doctorchoice($id,$res->getBlocId($idh,$ids)["id"]);
+
 }

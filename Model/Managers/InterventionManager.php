@@ -20,7 +20,7 @@ class InterventionManager
 
     public function addIntervention($intervention){
 
-        $query="INSERT INTO  intervention VALUES (NULL ,'".$intervention->getCommentry()."',".$intervention->getRescueId().",NULL,NULL,'In progress')";
+        $query="INSERT INTO  intervention VALUES (NULL ,'".$intervention->getCommentry()."',".$intervention->getRescueId().",NULL,NULL,'In progress',1)";
         $res=$this->cnx->exec($query);
         return $this->cnx->lastInsertId();
 
@@ -40,7 +40,7 @@ class InterventionManager
         return $res->fetch(PDO::FETCH_COLUMN);
     }
     public function getAll(){
-        $query="SELECT * FROM intervention ORDER BY (etat) DESC ";
+        $query="SELECT * FROM hospital  ";
         $res=$this->cnx->query($query);
         return $res->fetchAll(PDO::FETCH_NUM);
     }
@@ -59,5 +59,29 @@ class InterventionManager
     public function getChoiceName($choix){
         $query="SELECT h.lib_hop , s.name FROM hospital h , service s , bloc b  WHERE h.id=b.hospital AND s.id=b.service AND b.id=$choix";
         return $this->cnx->query($query)->fetch();
+    }
+    public function getInventionCours(){
+        $query="SELECT * FROM intervention WHERE etat='In progress' AND choix is NULL AND doctor_id is NULL ";
+        return $this->cnx->query($query)->fetchAll(PDO::FETCH_NAMED);
+    }
+    public function getInterventionInformation($id){
+        $query="SELECT i.id,i.rescue_id,i.commentry,e.altitude,e.longitude,e.rythme,e.temperature FROM intervention i , etat e WHERE e.id=i.patetat AND i.id=$id";
+        return $this->cnx->query($query)->fetch(PDO::FETCH_NAMED);
+    }
+    public function getHospitalId($name){
+        $query="SELECT id FROM hospital WHERE lib_hop='$name'";
+        return $this->cnx->query($query)->fetch(PDO::FETCH_NAMED);
+    }
+    public function getServiceId($name){
+        $query="SELECT id FROM service WHERE name='$name'";
+        return $this->cnx->query($query)->fetch(PDO::FETCH_NAMED);
+    }
+    public function getBlocId($hop,$ser){
+        $query="SELECT id FROM bloc WHERE service=$ser AND hospital=$hop";
+        return $this->cnx->query($query)->fetch(PDO::FETCH_NAMED);
+    }
+    public function addBloc($hop,$ser){
+        $query="INSERT INTO bloc VALUES (NULL ,$ser,$hop)";
+        $this->cnx->exec($query);
     }
 }

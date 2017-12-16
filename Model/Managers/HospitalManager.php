@@ -20,6 +20,7 @@ class HospitalManager
    
     public function createTable()
     {
+
         $query="CREATE TABLE `SmartGuard`.`hospital` ( `id` INT(11) NOT NULL , `lib_gouv` VARCHAR(20) NOT NULL , `code_hc` VARCHAR(20) NOT NULL , `lib_hop` varchar(50) NOT NULL , `adresse` varchar(50) NOT NULL , `adresse` varchar(50) NOT NULL , `tel` varchar(20) NOT NULL , PRIMARY KEY (`id`)) ENGINE = MyISAM;";
         $res=$this->cnx->exec($query);
         return $res;
@@ -28,7 +29,8 @@ class HospitalManager
 
     public function addHospital($hospital)
     {
-        $query="INSERT INTO hospital VALUE ('".$hospital->getId()."','".$hospital->getLibHop()."','".$hospital->getLibGouv()."','".$hospital->getAdresse()."','".$hospital->setCodeHc()."')";
+
+        $query="INSERT INTO hospital VALUE (NULL ,'".$hospital->getLibGouv()."','".$hospital->getCodeHc()."','".$hospital->getLibHop()."','".$hospital->getAdresse()."','".$hospital->getTel()."')";
         $res=$this->cnx->exec($query);
         return $res;
 
@@ -68,8 +70,7 @@ class HospitalManager
     {
         $query="SELECT * FROM hospital";
         $res=$this->cnx->query($query);
-        return $res->fetchAll(PDO::FETCH_NUM);
-
+        return $res->fetchAll(PDO::FETCH_NAMED);
     }
 
 }

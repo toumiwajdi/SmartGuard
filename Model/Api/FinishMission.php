@@ -15,4 +15,8 @@ function addIntervention(){
     $id=$_POST["id"];
     $res=new InterventionManager();
     $res->finishIntervention($id);
+	$tab["ok"]="ok";
+	header("Content-Type:application/json");
+	
+    echo json_encode($tab);
 }

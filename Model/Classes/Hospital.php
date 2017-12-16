@@ -21,7 +21,7 @@ class Hospital
 
     public function __toString()
     {
-        return " Hospital {  ".$this->getId().",".$this->getLibHop().",".$this->getLibGouv().",".$this->getAdresse().",".$this->setCodeHc()." } ";
+        return " Hospital {  ".$this->getId().",".$this->getLibHop().",".$this->getLibGouv().",".$this->getAdresse().",".$this->getCodeHc()." } ";
     }
 
     /**

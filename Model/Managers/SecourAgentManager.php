@@ -40,7 +40,6 @@ class SecourAgentManager
         $query="Select * from person WHERE work_id='$matricule' AND type='secure'";
         $res=$this->cnx->query($query);
         return $res->fetch();
-
     }
 
 
@@ -51,7 +50,6 @@ class SecourAgentManager
         return $res;
 
     }
-
     public function getAll()
     {
         $query="SELECT * FROM person WHERE type='secure'";
@@ -68,5 +66,6 @@ class SecourAgentManager
         $res=$this->cnx->query($query);
         return $res->fetch();
     }
+
 
 }
